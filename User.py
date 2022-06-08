@@ -29,9 +29,9 @@ class User:
         return self._categories
 
     @categories.setter
-    def categories(self, cat):
-        self._categories[cat[0]] = cat[1]
-        self._income -= cat[1]
+    def categories(self, cat, amount):
+        self._categories[cat] = int(amount)
+        self._income -= int(amount)
 
     def monthly_costs(self):
         sum = 0
