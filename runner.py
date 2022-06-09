@@ -1,3 +1,4 @@
+from cmath import exp
 from importlib.resources import path
 import csv
 from User import User
@@ -23,16 +24,17 @@ def main():
             prompt = False
         elif choice == '1':
             amount = int(input("What's your new income\n"))
-            Jon.income = amount
+            Jon.new_income(amount)
         elif choice == '2':
             name = input("What's the name of the category\n")
             Jon.add_category(name)
         elif choice == '3':
             set_amount = input("Name the category and the amount\n").split(" ")
-            Jon.categories(set_amount[0],set_amount[1])
+            Jon.new_categorie(set_amount[0],set_amount[1])
             
         elif choice == '4':
-            pass
+            expense = input("Add category and amount").split(" ")
+            Jon.expense(expense[0],expense[1])
         elif choice == '5':
             Jon.monthly_costs()
         elif choice == '6':

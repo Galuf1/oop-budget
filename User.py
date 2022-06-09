@@ -17,9 +17,9 @@ class User:
     def income(self):
         return self._income
 
-    @income.setter
-    def income(self, new_income):
-        if new_income > self._income:
+    # @income.setter
+    def new_income(self, new_income):
+        if new_income > self.monthly_costs():
             self._income = new_income
         else: 
             print("can't do")
@@ -28,10 +28,16 @@ class User:
     def categories(self):
         return self._categories
 
-    @categories.setter
-    def categories(self, cat, amount):
-        self._categories[cat] = int(amount)
+    # @categories.setter
+    def new_categorie(self, cat, amount):
+        self.categories[cat] = int(amount)
         self._income -= int(amount)
+    
+    def expense(self,cat, expense):
+        if self.categories[cat] > int(expense):
+            self.categories[cat] -= int(expense)
+        else:
+            print("not enough budget in that category")
 
     def monthly_costs(self):
         sum = 0
